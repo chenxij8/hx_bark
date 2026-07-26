@@ -226,8 +226,8 @@ for (const sample of sampleNames) {
 }
 
 let checked = 0;
-if (!Array.isArray(report.mappings) || report.mappings.length !== 36) {
-  throw new Error('Pitch analyzer report must contain all 36 normal sample/tier mappings');
+if (!Array.isArray(report.mappings) || report.mappings.length !== 48) {
+  throw new Error('Pitch analyzer report must contain all 48 normal sample/tier mappings');
 }
 for (const mapping of report.mappings) {
   const actualRate = mappingApi.barkPlaybackRate(
@@ -327,8 +327,8 @@ const pianoOctaveStarts = [3, 4, 5, 6];
 const pianoIntervals = [0, 2, 4, 5, 7, 9, 11, 12];
 const pianoMidiForOctave = octave =>
   pianoIntervals.map(interval => (octave + 1) * 12 + interval);
-if (!Array.isArray(report.piano_mappings) || report.piano_mappings.length !== 288) {
-  throw new Error('Pitch analyzer report must contain all 288 piano sample/key mappings');
+if (!Array.isArray(report.piano_mappings) || report.piano_mappings.length !== 384) {
+  throw new Error('Pitch analyzer report must contain all 384 piano sample/key mappings');
 }
 for (const mapping of report.piano_mappings) {
   const pianoMidi = pianoMidiForOctave(mapping.octave_start);

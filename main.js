@@ -52,6 +52,7 @@ const SFX_SAMPLE_SETS = Object.freeze({
     gou: 'dingdongji_dong',
     jiao: 'dingdongji_ji',
   }),
+  hx: Object.freeze({ da: 'hx_aa', gou: 'hx_ha', jiao: 'hx_aha' }),
 });
 const CHARACTER_IMAGE_SETS = Object.freeze({
   dagou: Object.freeze({
@@ -68,6 +69,11 @@ const CHARACTER_IMAGE_SETS = Object.freeze({
     close: 'Image/maodie_close_mouth.png',
     open: 'Image/maodie_open_mouth.png',
     alt: '哈基米',
+  }),
+  hx: Object.freeze({
+    close: 'Image/hx_close.png',
+    open: 'Image/hx_open.png',
+    alt: 'hx',
   }),
 });
 const HAJIMI_ATLAS_URL =
@@ -127,6 +133,25 @@ const SUSTAIN_REGIONS = {
     regionStart: 0.120, regionEnd: 0.310,
     frame: 0.100, overlap: 0.050, search: 0.012,
     wrapBlend: 0.040, textureDuration: 11.83, seed: 0.53,
+    preferFrameEntry: true,
+  },
+  hx_aa: {
+    enabled: false,
+    regionStart: 0.055, regionEnd: 0.140,
+    frame: 0.048, overlap: 0.024, search: 0.006,
+    wrapBlend: 0.036, textureDuration: 7.73, seed: 0.43,
+  },
+  hx_ha: {
+    enabled: false,
+    regionStart: 0.050, regionEnd: 0.130,
+    frame: 0.046, overlap: 0.023, search: 0.006,
+    wrapBlend: 0.035, textureDuration: 7.50, seed: 0.38,
+  },
+  hx_aha: {
+    enabled: true,
+    regionStart: 0.120, regionEnd: 0.290,
+    frame: 0.100, overlap: 0.050, search: 0.012,
+    wrapBlend: 0.040, textureDuration: 12.37, seed: 0.65,
     preferFrameEntry: true,
   },
 };
@@ -1411,6 +1436,9 @@ const BARK_SOURCE_MIDI = Object.freeze({
   dingdongji_ding: 68.72369809072657,
   dingdongji_dong: 68.20736701647688,
   dingdongji_ji: 69.48535473104747,
+  hx_aa: 72.92032424123498,
+  hx_ha: 67.46605656354468,
+  hx_aha: 68.32251102743564,
 });
 
 // ha_new 的 A5 跨度较大；普通模式使用全四档复测后的 minimax 补偿锚点。
@@ -1451,6 +1479,9 @@ const BARK_TARGET_MIDI = Object.freeze({
   dingdongji_ding: Object.freeze([74, 72, 69, 67]), // D5, C5, A4, G4
   dingdongji_dong: Object.freeze([74, 72, 69, 67]), // D5, C5, A4, G4
   dingdongji_ji: Object.freeze([74, 72, 69, 67]),   // D5, C5, A4, G4
+  hx_aa: Object.freeze([79, 76, 72, 69]),   // G5, E5, C5, A4
+  hx_ha: Object.freeze([72, 69, 67, 64]),   // C5, A4, G4, E4
+  hx_aha: Object.freeze([79, 76, 72, 69]),  // G5, E5, C5, A4
 });
 
 // 20 ms 有声帧门限 RMS，以 da.wav 为响度基准。Web Audio 使用浮点链路，
@@ -1465,6 +1496,9 @@ const SFX_SAMPLE_GAIN = Object.freeze({
   dingdongji_ding: 2.5889190244772604,
   dingdongji_dong: 2.3637451111911507,
   dingdongji_ji: 2.3501763429894065,
+  hx_aa: 0.986579,
+  hx_ha: 1.487215,
+  hx_aha: 1.233051,
 });
 
 // 钢琴模式按起始八度动态生成 C 大调白键；第八键以高音 C 闭合完整八度。

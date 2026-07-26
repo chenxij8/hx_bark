@@ -23,6 +23,9 @@ const sampleFiles = Object.freeze({
   dingdongji_ding: 'dingdongji_ding.wav',
   dingdongji_dong: 'dingdongji_dong.wav',
   dingdongji_ji: 'dingdongji_ji.wav',
+  hx_aa: 'hx_aa.wav',
+  hx_ha: 'hx_ha.wav',
+  hx_aha: 'hx_aha.wav',
 });
 
 const entries = Object.entries(sampleFiles).map(([sampleName, relativePath]) => {

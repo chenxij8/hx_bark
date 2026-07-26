@@ -33,6 +33,7 @@ SFX_SAMPLE_SETS = {
     "dagou": ("da", "gou", "jiao"),
     "hajimi": ("ha", "ji", "mi"),
     "dingdong": ("dingdongji_ding", "dingdongji_dong", "dingdongji_ji"),
+    "hx": ("hx_aa", "hx_ha", "hx_aha"),
 }
 SAMPLE_NAMES = tuple(
     sample_name
@@ -60,6 +61,9 @@ FIXED_TARGET_MIDI = {
     "dingdongji_ding": (74, 72, 69, 67),  # D5, C5, A4, G4
     "dingdongji_dong": (74, 72, 69, 67),  # D5, C5, A4, G4
     "dingdongji_ji": (74, 72, 69, 67),    # D5, C5, A4, G4
+    "hx_aa": (79, 76, 72, 69),   # G5, E5, C5, A4 (same as da)
+    "hx_ha": (72, 69, 67, 64),   # C5, A4, G4, E4 (same as gou)
+    "hx_aha": (79, 76, 72, 69),  # G5, E5, C5, A4 (same as jiao)
 }
 PIANO_OCTAVE_STARTS = (3, 4, 5, 6)
 PIANO_SCALE_INTERVALS = (0, 2, 4, 5, 7, 9, 11, 12)
