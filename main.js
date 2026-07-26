@@ -5,7 +5,7 @@
  * 视觉（仿 Mikutap）：
  *   · 全屏几何特效，以屏幕正中心为原点铺满全屏
  *   · 新特效叠在旧特效之上，旧特效随即退场
- *   · 固定米白背景；限定调色板：主色黄 + 次色灰（极少点缀色）
+ *   · 固定米白背景；限定调色板：主色蓝 + 次色灰（极少点缀色）
  *   · 特效带常驻动效（旋转 / 漂浮 / 环绕 / 波动）并随节拍轻微脉动（只做大小/形状变化，不变色）
  * ============================================================ */
 
@@ -92,7 +92,7 @@ const RUNTIME_SAMPLE_NAMES = Object.freeze(
 );
 const buffers = {};       // 解码后的音效样本
 const sustainLoops = {};  // 从原样本中实时构建的 WSOLA 延音纹理
-let selectedSfxId = 'hajimi';
+let selectedSfxId = 'hx';
 let hajimiAnimationEnabled = false;
 let hajimiAnimationReady = false;
 let hajimiAnimationRequested = false;
@@ -234,6 +234,16 @@ const dogOpenImage = document.getElementById('dog-open');
 const dogAnimationCanvas = document.getElementById('dog-animation');
 const dogAnimationAtlas = document.getElementById('dog-animation-atlas');
 const dogAnimation2d = dogAnimationCanvas.getContext('2d', { alpha: true });
+
+/* 根据 selectedSfxId 初始化角色图片（默认 hx） */
+(function initCharacter() {
+  const characterImages = CHARACTER_IMAGE_SETS[selectedSfxId]
+    ?? CHARACTER_IMAGE_SETS.dagou;
+  dogCloseImage.src = characterImages.close;
+  dogCloseImage.alt = characterImages.alt;
+  dogOpenImage.src = characterImages.open;
+  dogInner.classList.toggle('is-hajimi', selectedSfxId === 'hajimi');
+})();
 const overlay   = document.getElementById('overlay');
 const keyGrid   = document.getElementById('key-grid');
 const flashLayer = document.getElementById('zoneflash');
@@ -1527,7 +1537,7 @@ const PIANO_KEYBOARD_SAMPLES = Object.freeze(['da', 'gou', 'jiao']);
  * ==========================================================*/
 const C = {
   cream: '#fff2dc',   // 背景 · 米白（固定不变）
-  amber: '#ffb400',   // 主色 · 黄
+  amber: '#3e7bfa',   // 主色 · 蓝
   gray:  '#87837e',   // 次要 · 灰
   coral: '#ff5a5f',   // 点缀（少量）
   teal:  '#16c2a3',   // 点缀（少量）
@@ -1535,7 +1545,7 @@ const C = {
 };
 const ACCENTS = [C.coral, C.teal, C.blue];
 
-/* 形状取色：约 62% 主色黄，28% 灰，10% 点缀色 */
+/* 形状取色：约 62% 主色蓝，28% 灰，10% 点缀色 */
 function pickColor(rng) {
   const r = rng();
   if (r < 0.62) return C.amber;
@@ -3479,6 +3489,7 @@ async function start() {
   setInterval(scheduler, 25);
 
   overlay.classList.add('hide');
+  dog.style.opacity = '1';
 }
 
 let resizeTimer = 0;

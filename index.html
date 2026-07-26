@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
 <meta name="theme-color" content="#fff2dc" />
-<title>大狗Tap</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐶</text></svg>" />
+<title>💛Tap</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💛</text></svg>" />
 <script src="//s1.hdslb.com/bfs/seed/toy/app/sdk/toy-sdk.js"></script>
 <style>
-  /* 全页面限定调色板：米白底 + 主色黄 + 次色灰（极少点缀色） */
+  /* 全页面限定调色板：米白底 + 主色蓝 + 次色灰（极少点缀色） */
   :root {
     --cream: #fff2dc;   /* 背景 · 米白 */
-    --amber: #ffb400;   /* 主色 · 黄 */
+    --amber: #3e7bfa;   /* 主色 · 蓝 */
     --gray:  #87837e;   /* 次要 · 灰 */
     --coral: #ff5a5f;   /* 点缀（少量） */
     --teal:  #16c2a3;   /* 点缀（少量） */
@@ -21,7 +21,7 @@
   html, body { height: 100%; overflow: hidden; }
   body {
     font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-    background: var(--cream);
+    background: #dcfcff;
     color: var(--gray);
     -webkit-tap-highlight-color: transparent;
     user-select: none;
@@ -35,7 +35,7 @@
     inset: 0;
     overflow: hidden;
     isolation: isolate;
-    background: var(--cream);
+    background: #dcfcff;
     --scene-unit: 200px;
   }
 
@@ -59,6 +59,17 @@
     pointer-events: none;
     user-select: none;
   }
+  /* 左下角署名，样式完全参照右下角 #author-link */
+  #creator-link {
+    position: absolute;
+    left: max(18px, env(safe-area-inset-left));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 30;
+    padding: 10px 12px 11px;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+  }
   .author-copy {
     display: flex;
     flex-direction: column;
@@ -74,7 +85,7 @@
     justify-content: space-between;
   }
   .author-label {
-    color: rgba(255, 180, 0, .78);
+    color: rgba(62, 123, 250, .78);
     font: 600 9px/1 "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -149,7 +160,7 @@
     justify-content: center;
     gap: 6px;
     color: rgba(111, 106, 99, .72);
-    background: rgba(255, 250, 240, .54);
+    background: rgba(240, 245, 255, .54);
     box-shadow: inset 0 0 0 1px rgba(135, 131, 126, .16);
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
@@ -169,7 +180,7 @@
     cursor: default;
   }
   .octave-arrow {
-    color: rgba(255, 180, 0, .62);
+    color: rgba(62, 123, 250, .62);
     font-size: 1.18em;
     font-weight: 800;
   }
@@ -207,7 +218,7 @@
   @media (hover: hover) {
     .octave-control:not(:disabled):hover {
       color: rgba(111, 106, 99, .9);
-      background: rgba(255, 250, 240, .72);
+      background: rgba(240, 245, 255, .72);
     }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -235,6 +246,8 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    opacity: .3;
+    transition: opacity .6s ease;
     will-change: transform;
     transform-origin: 50% 62%;   /* 节拍压缩围绕狗身体中下部进行 */
   }
@@ -251,7 +264,7 @@
   #dog-inner img {
     width: 100%;
     display: block;
-    filter: drop-shadow(0 18px 40px rgba(135, 131, 126, .4));
+    filter: drop-shadow(0 18px 40px rgba(135, 131, 126, .4)) drop-shadow(0 0 8px rgba(62, 123, 250, .55)) drop-shadow(0 0 3px rgba(62, 123, 250, .35));
   }
   /* 张嘴图叠在闭嘴图之上：下层始终不透明，只切换上层透明度，
      避免交叉淡化时两张图都半透明导致整体变透明 */
@@ -373,7 +386,7 @@
     position: absolute;
     inset: 2px;
     z-index: -1;
-    background: var(--btn-fill);
+    background: #dcfcff;
     clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px),
                        calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
     transition: background .2s ease;
@@ -386,7 +399,7 @@
   }
   /* 悬停描边变琥珀色（仅桌面端）；.is-muted 规则在更后面，静音态优先 */
   @media (hover: hover) {
-    .control-button:hover { --btn-edge: rgba(255, 180, 0, .85); }
+    .control-button:hover { --btn-edge: rgba(62, 123, 250, .85); }
   }
   .control-button svg {
     width: 20px;
@@ -424,7 +437,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 250, 240, .96);
+    background: rgba(240, 245, 255, .96);
     clip-path: polygon(32% 0, 68% 0, 100% 32%, 100% 68%, 68% 100%, 32% 100%, 0 68%, 0 32%);
     filter: drop-shadow(0 0 3px rgba(255, 90, 95, .55));
     pointer-events: none;
@@ -451,7 +464,7 @@
     opacity: 0;
     transform: translateY(-6px) scale(.92);
     transform-origin: top right;
-    filter: drop-shadow(0 6px 12px rgba(255, 180, 0, .38));
+    filter: drop-shadow(0 6px 12px rgba(62, 123, 250, .38));
     transition: opacity .3s ease, transform .34s cubic-bezier(.34, 1.4, .4, 1);
   }
   #top-controls.has-update-dot #settings-hint {
@@ -481,7 +494,7 @@
   }
   .settings-hint-bubble {
     padding: 8px 13px 9px;
-    color: #fffaf0;
+    color: #f0f5ff;
     background: var(--amber);
     clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px),
                        calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
@@ -503,8 +516,8 @@
     width: min(420px, calc(100% - 32px));
     padding: 12px 16px;
     color: #6f6a63;
-    background: rgba(255, 250, 240, .97);
-    border: 2px solid rgba(255, 180, 0, .72);
+    background: rgba(240, 245, 255, .97);
+    border: 2px solid rgba(62, 123, 250, .72);
     border-radius: 12px;
     box-shadow: 0 10px 28px rgba(135, 131, 126, .24);
     font-size: 13px;
@@ -560,7 +573,7 @@
     gap: 2.2vmin;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 242, 220, .9);
+    background: transparent;
     transition: opacity .5s ease;
     cursor: pointer;
   }
@@ -589,7 +602,7 @@
     align-items: center;
     justify-content: center;
     padding: 22px;
-    background: rgba(255, 242, 220, .88);
+    background: #dcfcff;
     opacity: 0;
     pointer-events: none;
     transition: opacity .28s ease;
@@ -617,7 +630,7 @@
     position: absolute;
     inset: 2px;
     z-index: -1;
-    background: rgba(255, 250, 240, .97);
+    background: rgba(240, 245, 255, .97);
     clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px),
                        calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
   }
@@ -627,16 +640,16 @@
     padding: 14px 16px 16px;
     /* 细滚动条：透明轨道 + 琥珀色滑块，不得不滚动时也保持简洁美观 */
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 180, 0, .45) transparent;
+    scrollbar-color: rgba(62, 123, 250, .45) transparent;
   }
   .settings-scroll::-webkit-scrollbar { width: 6px; }
   .settings-scroll::-webkit-scrollbar-track { background: transparent; }
   .settings-scroll::-webkit-scrollbar-thumb {
-    background: rgba(255, 180, 0, .45);
+    background: rgba(62, 123, 250, .45);
     border-radius: 999px;
   }
   .settings-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 180, 0, .7);
+    background: rgba(62, 123, 250, .7);
   }
   .settings-head {
     display: flex;
@@ -703,13 +716,13 @@
     position: absolute;
     inset: 2px;
     z-index: -1;
-    background: var(--btn-fill);
+    background: #dcfcff;
     clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px),
                        calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
     transition: background .2s ease;
   }
   @media (hover: hover) {
-    .setting-row:not(:disabled):hover { --btn-edge: rgba(255, 180, 0, .72); }
+    .setting-row:not(:disabled):hover { --btn-edge: rgba(62, 123, 250, .72); }
   }
   .setting-row:focus-visible {
     outline: 3px solid rgba(62, 123, 250, .34);
@@ -720,7 +733,7 @@
     cursor: not-allowed;
   }
   .setting-row[aria-checked="true"] {
-    --btn-edge: rgba(255, 180, 0, .78);
+    --btn-edge: rgba(62, 123, 250, .78);
     --btn-fill: rgba(255, 244, 224, .96);
   }
   .setting-copy {
@@ -760,7 +773,7 @@
     top: 4px;
     width: 18px;
     height: 18px;
-    background: #fffaf0;
+    background: #f0f5ff;
     clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px),
                        calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
     filter: drop-shadow(0 2px 3px rgba(80, 76, 71, .3));
@@ -782,7 +795,7 @@
   .setting-row[aria-checked="true"] .setting-switch::after { transform: translateX(20px); }
   .setting-row[aria-checked="true"] .setting-switch::before {
     transform: translateX(20px);
-    background: rgba(255, 180, 0, .9);
+    background: rgba(62, 123, 250, .9);
   }
   #performance-settings-status {
     margin-top: 6px;
@@ -806,7 +819,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 180, 0, .65);
+    background: rgba(62, 123, 250, .65);
     clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px),
                        calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
   }
@@ -894,7 +907,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 250, 240, .88);
+    background: rgba(240, 245, 255, .88);
     clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
     transform: translate(-50%, -50%) scale(var(--rhythm-scale, 1));
     will-change: transform;
@@ -960,13 +973,13 @@
     position: absolute;
     inset: 2px;
     z-index: -1;
-    background: var(--btn-fill);
+    background: #dcfcff;
     clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px),
                        calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
     transition: background .2s ease;
   }
   .sfx-option.is-active {
-    --btn-edge: rgba(255, 180, 0, .92);
+    --btn-edge: rgba(62, 123, 250, .92);
     --btn-fill: rgba(255, 244, 224, .96);   /* 淡黄底 + 琥珀描边，呼应控制按钮的浅色语言 */
     color: #d88f00;
   }
@@ -988,7 +1001,7 @@
   }
   .sfx-new {
     padding: 3px 5px 2px;
-    color: #fffaf0;
+    color: #f0f5ff;
     background: var(--coral);
     border-radius: 999px;
     font-size: 8px;
@@ -1004,7 +1017,7 @@
     align-items: center;
     justify-content: center;
     color: #77736e;
-    background: rgba(255, 250, 240, .94);
+    background: rgba(240, 245, 255, .94);
     border-radius: 50%;
     box-shadow: 0 2px 6px rgba(135, 131, 126, .24);
   }
@@ -1107,16 +1120,16 @@
     position: absolute;
     inset: 2px;
     z-index: -1;
-    background: var(--btn-fill);
+    background: #dcfcff;
     clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px),
                        calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
     transition: background .2s ease;
   }
   @media (hover: hover) {
-    .skin-option:not(:disabled):hover { --btn-edge: rgba(255, 180, 0, .72); }
+    .skin-option:not(:disabled):hover { --btn-edge: rgba(62, 123, 250, .72); }
   }
   .skin-option.is-active {
-    --btn-edge: rgba(255, 180, 0, .92);
+    --btn-edge: rgba(62, 123, 250, .92);
     --btn-fill: rgba(255, 244, 224, .96);   /* 与音效选中态同一语言：淡黄底 + 琥珀描边 */
   }
   .skin-option.is-locked {
@@ -1190,7 +1203,7 @@
     width: min(350px, 100%);
     padding: 24px 22px 20px;
     color: #6f6a63;
-    background: rgba(255, 180, 0, .78);
+    background: rgba(62, 123, 250, .78);
     clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px),
                        calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
     filter: drop-shadow(0 18px 42px rgba(80, 76, 71, .3));
@@ -1206,7 +1219,7 @@
     position: absolute;
     inset: 2px;
     z-index: -1;
-    background: rgba(255, 250, 240, .98);
+    background: rgba(240, 245, 255, .98);
     clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px),
                        calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
   }
@@ -1217,11 +1230,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fffaf0;
+    color: #f0f5ff;
     background: var(--amber);
     clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px),
                        calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
-    filter: drop-shadow(0 6px 12px rgba(255, 180, 0, .28));
+    filter: drop-shadow(0 6px 12px rgba(62, 123, 250, .28));
   }
   .unlock-confirm-icon svg {
     width: 26px;
@@ -1277,11 +1290,11 @@
   }
   .unlock-confirm-button.is-primary {
     color: #b57e00;
-    background: rgba(255, 180, 0, .9);
+    background: rgba(62, 123, 250, .9);
   }
   .unlock-confirm-button.is-primary::before { background: rgba(255, 244, 224, .98); }
   @media (hover: hover) {
-    .unlock-confirm-button:hover { background: rgba(255, 180, 0, .7); }
+    .unlock-confirm-button:hover { background: rgba(62, 123, 250, .7); }
   }
   .unlock-confirm-button:active { transform: scale(.96); }
   .unlock-confirm-button:disabled {
@@ -1305,12 +1318,73 @@
     .author-avatar { width: 46px; height: 46px; }
     .author-id { font-size: 15px; }
   }
+
+  /* 开发者/原作者切换标签栏：切角双按钮 */
+  .settings-tab-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .tab-btn {
+    --btn-edge: rgba(135, 131, 126, .45);
+    --btn-fill: rgba(255, 255, 255, .62);
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: none;
+    color: var(--gray);
+    background: var(--btn-edge);
+    clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px),
+                       calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+    font: 700 13px/1 "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: color .2s ease, background .2s ease;
+  }
+  .tab-btn::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+    background: #dcfcff;
+    clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px),
+                       calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+    transition: background .2s ease;
+  }
+  @media (hover: hover) {
+    .tab-btn:not(.is-active):hover { --btn-edge: rgba(62, 123, 250, .65); }
+  }
+  .tab-btn.is-active {
+    --btn-edge: rgba(62, 123, 250, .92);
+    --btn-fill: rgba(255, 244, 224, .96);
+    color: #d88f00;
+  }
+  .tab-btn:active { transform: scale(.96); }
+  .tab-btn:focus-visible {
+    outline: 3px solid rgba(62, 123, 250, .38);
+    outline-offset: 2px;
+  }
+
+  /* 标签内容可见性：由 wrapper 上的 data-active-tab 控制 */
+  #settings-tab-content-wrapper[data-active-tab="developer"] .tab-original-only { display: none; }
+  #settings-tab-content-wrapper[data-active-tab="developer"] .sfx-option:not([data-sfx="hx"]) { display: none; }
+  #settings-tab-content-wrapper[data-active-tab="developer"] .skin-switcher { display: none; }
+  #settings-tab-content-wrapper[data-active-tab="original"] .tab-developer-only { display: none; }
 </style>
 </head>
 <body>
   <div id="stage">
     <canvas id="fx"></canvas>
     <div id="author-link" aria-hidden="true">
+      <span class="author-copy" aria-hidden="true">
+      <span class="author-label">Modified by</span>
+        <span class="author-name">MuMei_-</span>
+      </span>
+    </div>
+    <div id="creator-link" aria-hidden="true">
       <span class="author-copy" aria-hidden="true">
         <span class="author-label">Created by</span>
         <span class="author-name">MarkCup</span>
@@ -1334,8 +1408,8 @@
     <div id="dog">
       <div id="dog-inner" class="is-hajimi">
         <div id="dog-jelly">
-          <img id="dog-close" src="Image/maodie_close_mouth.png" alt="哈基米" draggable="false" />
-          <img id="dog-open" src="Image/maodie_open_mouth.png" alt="" draggable="false" />
+          <img id="dog-close" src="Image/hx_close.png" alt="哈基米" draggable="false" />
+          <img id="dog-open" src="Image/hx_open.png" alt="" draggable="false" />
           <canvas id="dog-animation" width="360" height="514" role="img" aria-label="东海帝皇循环动画" aria-hidden="true"></canvas>
         </div>
       </div>
@@ -1374,7 +1448,7 @@
         <div id="settings-hint" aria-hidden="true">
           <div class="settings-hint-bob">
             <svg class="settings-hint-arrow" viewBox="0 0 24 24"><path d="M12 20V6M6 12l6-6 6 6" /></svg>
-            <span class="settings-hint-bubble">点击设置<br />切换大狗叫音效</span>
+            <span class="settings-hint-bubble">点击设置<br />切换音效</span>
           </div>
         </div>
       </div>
@@ -1392,7 +1466,32 @@
             </button>
           </div>
 
-          <section class="settings-section" aria-label="作者">
+          <div class="settings-tab-bar" role="tablist" aria-label="信息视图切换">
+            <button class="tab-btn is-active" type="button" role="tab" aria-selected="true" data-tab="developer">开发者</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="original">原作者</button>
+          </div>
+
+          <div id="settings-tab-content-wrapper" data-active-tab="developer">
+
+          <section class="settings-section tab-developer-only" aria-label="开发者">
+            <div class="settings-label">开发者 · Developer</div>
+            <div class="author-card">
+              <span class="author-avatar"><img src="Image/editor.png" alt="MuMei_- 的头像" draggable="false" /></span>
+              <div class="author-info">
+                <div class="author-id">MuMei_-</div>
+                <div class="author-sub">bilibili 创作者</div>
+              </div>
+              <button id="dev-home-button" class="control-button" type="button" aria-label="前往开发者哔哩哔哩主页">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 11.5L12 4l8 7.5" />
+                  <path d="M6.5 10v9.5h11V10" />
+                </svg>
+                主页
+              </button>
+            </div>
+          </section>
+
+          <section class="settings-section tab-original-only" aria-label="作者">
             <div class="settings-label">作者 · Creator</div>
             <div class="author-card">
               <span class="author-avatar"><img src="Image/creator-avatar.jpg" alt="马克杯MarkCup 的头像" draggable="false" /></span>
@@ -1410,7 +1509,7 @@
             </div>
           </section>
 
-          <section class="settings-section" aria-label="开发视频">
+          <section class="settings-section tab-original-only" aria-label="开发视频">
             <div class="settings-label">开发视频 · Dev Video</div>
             <button id="video-card" class="video-card" type="button" aria-label="打开视频：点击即玩世界上最爽的大狗叫模拟器">
               <span class="video-cover">
@@ -1440,15 +1539,15 @@
                 </span>
                 <span class="sfx-name">叮咚鸡</span>
               </button>
-              <button class="sfx-option is-active" type="button" role="radio" aria-checked="true" aria-label="哈基米音效已启用" data-sfx="hajimi">
+              <button class="sfx-option" type="button" role="radio" aria-checked="false" data-sfx="hajimi">
                 <span class="sfx-icon">
                   <img id="hajimi-option-image" src="Image/maodie_close_mouth.png" alt="" draggable="false" />
                 </span>
                 <span class="sfx-name">哈基米</span>
               </button>
-              <button class="sfx-option" type="button" role="radio" aria-checked="false" data-sfx="hx">
-                <span class="sfx-icon"><img src="Image/hx_close.jpg" alt="" draggable="false" /></span>
-                <span class="sfx-name">hx</span>
+              <button class="sfx-option is-active" type="button" role="radio" aria-checked="true" aria-label="💛音效已启用" data-sfx="hx">
+                <span class="sfx-icon"><img src="Image/hx_close.png" alt="" draggable="false" /></span>
+                <span class="sfx-name">💛</span>
               </button>
             </div>
             <div class="skin-switcher is-open" id="hajimi-skin-switcher" aria-hidden="false">
@@ -1512,6 +1611,8 @@
             </div>
             <div id="performance-settings-status" role="status">正在读取哔哩哔哩云端设置…</div>
           </section>
+
+          </div><!-- #settings-tab-content-wrapper -->
         </div>
       </div>
     </div>
@@ -1536,12 +1637,43 @@
     <div id="toy-notice" role="status" aria-live="assertive" aria-atomic="true" aria-hidden="true"></div>
 
     <div id="overlay">
-      <div class="title">大狗<em>Tap</em></div>
+      <div class="title">💛💛<em>Tap</em></div>
       <div class="sub">点 击 任 意 位 置 开 始</div>
     </div>
   </div>
 
   <script src="audio-data.js?v=20260721-hajimi-new"></script>
   <script src="main.js?v=20260722-octave-switching"></script>
+  <script>
+    (function() {
+      var tabBar = document.querySelector('.settings-tab-bar');
+      var wrapper = document.getElementById('settings-tab-content-wrapper');
+      if (!tabBar || !wrapper) return;
+
+      tabBar.addEventListener('click', function(e) {
+        var btn = e.target.closest('.tab-btn');
+        if (!btn || btn.classList.contains('is-active')) return;
+
+        var tab = btn.getAttribute('data-tab');
+        if (!tab) return;
+
+        tabBar.querySelectorAll('.tab-btn').forEach(function(b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+
+        wrapper.setAttribute('data-active-tab', tab);
+      });
+
+      var devHomeBtn = document.getElementById('dev-home-button');
+      if (devHomeBtn) {
+        devHomeBtn.addEventListener('click', function() {
+          window.open('https://space.bilibili.com/291280258', '_blank');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
